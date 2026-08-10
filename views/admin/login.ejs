@@ -1,0 +1,31 @@
+<section class="section-padding bg-light-mint d-flex align-items-center" style="min-height: 80vh;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card glass-card border-0 shadow-lg">
+          <div class="card-body p-5">
+            <div class="text-center mb-4">
+              <span class="fs-1 text-success">☀</span>
+              <h2 class="h3 fw-bold text-success font-headings">Sky Solar Portal</h2>
+              <p class="text-muted">Administrator Log In</p>
+            </div>
+            
+            <form action="/admin/login" method="POST" class="needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control form-control-custom" id="username" placeholder="e.g. admin" required autocomplete="username">
+              </div>
+              
+              <div class="mb-4">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control form-control-custom" id="password" placeholder="••••••••" required autocomplete="current-password">
+              </div>
+              
+              <button type="submit" class="btn btn-premium-primary w-100 py-2">Log In to Dashboard</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

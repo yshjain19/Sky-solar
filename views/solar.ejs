@@ -1,0 +1,330 @@
+<!-- SUB-NAV / TABS FOR SOLAR VIEW -->
+<section class="bg-light-mint py-3 border-bottom">
+  <div class="container">
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
+      <button class="btn btn-premium-secondary active" id="tab-solutions-btn" onclick="switchSolarTab('solutions')">Solar Solutions</button>
+      <button class="btn btn-premium-secondary" id="tab-systems-btn" onclick="switchSolarTab('systems')">Solar Systems</button>
+      <button class="btn btn-premium-secondary" id="tab-calculator-btn" onclick="switchSolarTab('calculator')">Solar Calculator</button>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: SOLAR SOLUTIONS (Residential, Commercial, Housing Societies) -->
+<section class="section-padding solar-section-content" id="section-solutions">
+  <div class="container">
+    <div class="text-center mb-5 fade-in-up">
+      <span class="text-uppercase text-gold fw-bold tracking-wider">Tailored Energy</span>
+      <h2 class="mt-2">Solar Solutions For Every Need</h2>
+      <p class="text-muted mx-auto" style="max-width: 600px;">We design custom solar setups engineered for peak generation and maximum bill reduction.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Residential Solar -->
+      <div class="col-md-6 col-lg-4 fade-in-up">
+        <div class="card glass-card solution-card border-0">
+          <div class="solution-img-wrapper">
+            <img src="/public/images/residential_solar.png" alt="Residential Solar">
+            <div class="solution-icon-badge">
+              <i class="bi bi-house-door-fill"></i>
+            </div>
+          </div>
+          <div class="solution-card-body">
+            <h3>Residential Solar</h3>
+            <p class="text-muted mb-4">Customized rooftop solar systems designed specifically for Indian homes. Eliminate high summer slab rates, lock in flat bills, and secure continuous backup power.</p>
+            <a href="/contact?property=residential" class="btn btn-premium-primary w-100">Get Residential Consultation</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commercial Solar -->
+      <div class="col-md-6 col-lg-4 fade-in-up">
+        <div class="card glass-card solution-card border-0">
+          <div class="solution-img-wrapper">
+            <img src="/public/images/commercial_solar.png" alt="Commercial Solar">
+            <div class="solution-icon-badge">
+              <i class="bi bi-building-fill"></i>
+            </div>
+          </div>
+          <div class="solution-card-body">
+            <h3>Commercial Solar</h3>
+            <p class="text-muted mb-4">High-yield solar systems designed to reduce business operational expenditure. Benefit from accelerated depreciation tax offsets and lower commercial tariffs.</p>
+            <a href="/contact?property=commercial" class="btn btn-premium-primary w-100">Request Business Assessment</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Housing Societies -->
+      <div class="col-md-6 col-lg-4 fade-in-up">
+        <div class="card glass-card solution-card border-0">
+          <div class="solution-img-wrapper">
+            <img src="/public/images/apartment_solar.png" alt="Housing Societies Solar">
+            <div class="solution-icon-badge">
+              <i class="bi bi-people-fill"></i>
+            </div>
+          </div>
+          <div class="solution-card-body">
+            <h3>Housing Societies</h3>
+            <p class="text-muted mb-4">Shared rooftop installations optimized for common amenities (elevators, water pumps, clubhouse lights). Reduce maintenance bills for all society members.</p>
+            <a href="/contact?property=society" class="btn btn-premium-primary w-100">Get Society Consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: SYSTEM CONFIGURATIONS (On-Grid, Off-Grid, Hybrid) -->
+<section class="section-padding bg-light-mint d-none solar-section-content" id="section-systems">
+  <div class="container">
+    <div class="text-center mb-5 fade-in-up">
+      <span class="text-uppercase text-gold fw-bold tracking-wider">System Architectures</span>
+      <h2 class="mt-2">Solar System Types</h2>
+      <p class="text-muted mx-auto" style="max-width: 600px;">Understand the difference between grid-connected and battery-integrated solar energy structures.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- On-Grid Solar -->
+      <div class="col-lg-4 fade-in-up">
+        <div class="system-card">
+          <span class="system-icon"><i class="bi bi-grid-3x3-gap-fill"></i></span>
+          <h3>On-Grid Solar</h3>
+          <p class="text-muted">Directly connected to the local utility grid. Automatically exports surplus power to the grid via bidirectional Net Metering.</p>
+          <ul>
+            <li>Lowest upfront installation cost</li>
+            <li>Fastest payback period (4-5 years)</li>
+            <li>Eliminates battery replacements</li>
+          </ul>
+          <div class="system-suited">
+            <strong>Best suited for:</strong> Urban areas with high power tariffs and minimal load shedding.
+          </div>
+        </div>
+      </div>
+
+      <!-- Off-Grid Solar -->
+      <div class="col-lg-4 fade-in-up">
+        <div class="system-card">
+          <span class="system-icon"><i class="bi bi-battery-charging"></i></span>
+          <h3>Off-Grid Solar</h3>
+          <p class="text-muted">A fully autonomous solar network paired with a high-capacity battery bank. Completely independent from the local grid.</p>
+          <ul>
+            <li>Total electricity grid freedom</li>
+            <li>Provides 100% backup power</li>
+            <li>Ideal for zero-grid regions</li>
+          </ul>
+          <div class="system-suited">
+            <strong>Best suited for:</strong> Rural properties, remote farmhouses, and areas with frequent power outages.
+          </div>
+        </div>
+      </div>
+
+      <!-- Hybrid Solar -->
+      <div class="col-lg-4 fade-in-up">
+        <div class="system-card">
+          <span class="system-icon"><i class="bi bi-cpu-fill"></i></span>
+          <h3>Hybrid Solar</h3>
+          <p class="text-muted">The best of both worlds. Combines grid export capabilities with smart battery backups to protect during outages.</p>
+          <ul>
+            <li>Export excess power via Net Metering</li>
+            <li>Emergency battery backup during blackouts</li>
+            <li>Smart energy path management</li>
+          </ul>
+          <div class="system-suited">
+            <strong>Best suited for:</strong> Cities experiencing periodic load shedding wishing to lower bills.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: SAVINGS CALCULATOR & MONITORING -->
+<section class="section-padding d-none solar-section-content" id="section-calculator">
+  <div class="container">
+    <div class="text-center mb-5 fade-in-up">
+      <span class="text-uppercase text-gold fw-bold tracking-wider">Financial Estimator</span>
+      <h2 class="mt-2">Solar Savings Calculator</h2>
+      <p class="text-muted mx-auto" style="max-width: 600px;">Input your current power profile below to get an instant estimate of solar capabilities, costs, and payback timelines.</p>
+    </div>
+
+    <!-- Interactive Calculator -->
+    <div class="calculator-wrapper row g-0 mb-5 fade-in-up">
+      <div class="col-lg-6 calculator-form-side">
+        <h3 class="mb-4 text-success"><i class="bi bi-calculator me-2"></i>Calculate Your Savings</h3>
+        <form id="solar-calc-form" novalidate>
+          <div class="mb-3">
+            <label for="calc-city" class="form-label">City / PIN Code</label>
+            <input type="text" class="form-control form-control-custom" id="calc-city" placeholder="e.g. Pune or 411001" required>
+            <div class="invalid-feedback">Please enter a valid City or PIN Code.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="calc-bill" class="form-label">Monthly Electricity Bill (INR)</label>
+            <div class="input-group">
+              <span class="input-group-text bg-white border-end-0 border-secondary-subtle">₹</span>
+              <input type="number" class="form-control form-control-custom border-start-0" id="calc-bill" placeholder="e.g. 4000" min="500" required>
+            </div>
+            <div class="invalid-feedback">Please enter a valid monthly bill (Min. ₹500).</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="calc-property" class="form-label">Property Type</label>
+            <select class="form-select form-control-custom" id="calc-property" required>
+              <option value="" disabled selected>Select Property Type</option>
+              <option value="residential">Residential Home</option>
+              <option value="commercial">Commercial / Office</option>
+              <option value="apartment">Apartment Complex</option>
+              <option value="society">Housing Society</option>
+            </select>
+            <div class="invalid-feedback">Please select a property type.</div>
+          </div>
+
+          <div class="mb-4">
+            <label for="calc-area" class="form-label">Available Rooftop Area (Sq. Ft.)</label>
+            <input type="number" class="form-control form-control-custom" id="calc-area" placeholder="e.g. 500" min="100" required>
+            <div class="invalid-feedback">Please enter available shadow-free area (Min. 100 Sq. Ft.).</div>
+          </div>
+
+          <button type="submit" class="btn btn-premium-primary w-100">Calculate My Savings</button>
+        </form>
+      </div>
+
+      <!-- Result Dashboard -->
+      <div class="col-lg-6 calculator-results-side">
+        <div>
+          <h3>Your Solar Estimate</h3>
+          <div class="calc-result-box">
+            <h4>Recommended Solar Capacity</h4>
+            <div class="result-value" id="result-capacity">-- kW</div>
+          </div>
+
+          <div class="calculator-details-grid">
+            <div class="calc-detail-item">
+              <span class="label">Monthly Generation</span>
+              <span class="val" id="result-generation">-- kWh</span>
+            </div>
+            <div class="calc-detail-item">
+              <span class="label">Monthly Savings</span>
+              <span class="val" id="result-monthly-savings">₹--</span>
+            </div>
+            <div class="calc-detail-item">
+              <span class="label">Annual Savings</span>
+              <span class="val" id="result-annual-savings">₹--</span>
+            </div>
+            <div class="calc-detail-item">
+              <span class="label">Approx. Payback Period</span>
+              <span class="val" id="result-payback">-- Years</span>
+            </div>
+          </div>
+
+          <div class="calc-detail-item text-center py-3 mb-4" style="background: rgba(255,255,255,0.06); border-radius: 12px;">
+            <span class="label">Annual Carbon Offsets (CO₂)</span>
+            <span class="val text-success" id="result-co2" style="font-size: 1.4rem;">-- Tons</span>
+          </div>
+        </div>
+
+        <div>
+          <a href="/contact" id="detailed-quote-btn" class="btn btn-premium-primary w-100" style="background: var(--white); color: var(--primary-green) !important; box-shadow: none;">Get Detailed Solar Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOLAR PERFORMANCE MONITORING MOCKUP -->
+    <div class="mt-5 pt-4">
+      <div class="text-center mb-5 fade-in-up">
+        <span class="text-uppercase text-gold fw-bold tracking-wider">Live Telemetry Mockup</span>
+        <h2 class="mt-2">Monitor Your Solar Performance</h2>
+        <p class="text-muted mx-auto" style="max-width: 600px;">Every Sky Solar system includes access to our real-time smart app. Check your performance dashboard:</p>
+      </div>
+
+      <!-- Dashboard Mockup Card -->
+      <div class="dashboard-mockup fade-in-up">
+        <div class="dashboard-header">
+          <div class="dashboard-dot-container">
+            <span class="dashboard-dot dot-red"></span>
+            <span class="dashboard-dot dot-yellow"></span>
+            <span class="dashboard-dot dot-green"></span>
+          </div>
+          <div class="dashboard-title">Sky Solar App Telemetry (Live Demo)</div>
+          <div><span class="badge bg-success py-1 px-2 rounded-pill" style="font-size: 0.75rem;"><i class="bi bi-circle-fill me-1" style="font-size: 0.5rem; vertical-align: middle;"></i> Grid Online</span></div>
+        </div>
+        
+        <div class="dashboard-body">
+          <div class="row g-4">
+            <!-- Today's Generation -->
+            <div class="col-lg-3 col-md-6">
+              <div class="dashboard-stat-card">
+                <h4>Today's Generation</h4>
+                <div class="val">18.4 <span class="fs-6 fw-normal">kWh</span></div>
+                <div class="trend"><i class="bi bi-arrow-up-right"></i> Peak Solar Day</div>
+              </div>
+            </div>
+
+            <!-- Monthly Generation -->
+            <div class="col-lg-3 col-md-6">
+              <div class="dashboard-stat-card">
+                <h4>Monthly Generation</h4>
+                <div class="val">372 <span class="fs-6 fw-normal">kWh</span></div>
+                <div class="trend"><i class="bi bi-arrow-up-right"></i> Within normal range</div>
+              </div>
+            </div>
+
+            <!-- Energy Savings -->
+            <div class="col-lg-3 col-md-6">
+              <div class="dashboard-stat-card">
+                <h4>Energy Savings</h4>
+                <div class="val green-text">₹2,976</div>
+                <div class="trend"><span class="text-white-50">Saved this month</span></div>
+              </div>
+            </div>
+
+            <!-- CO2 Offset -->
+            <div class="col-lg-3 col-md-6">
+              <div class="dashboard-stat-card">
+                <h4>CO₂ Offset</h4>
+                <div class="val text-info">305.0 <span class="fs-6 fw-normal">kg</span></div>
+                <div class="trend"><span class="text-white-50">Equiv. to 14 trees</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visuals Panel -->
+          <div class="row g-4 mt-2">
+            <div class="col-lg-8">
+              <div class="dashboard-visuals-panel">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h4 class="mb-0 text-white fs-6">Hourly Power Output (kW)</h4>
+                  <span class="text-muted font-monospace" style="font-size: 0.75rem;">12:00 PM Peak</span>
+                </div>
+                
+                <!-- Chart Mockup -->
+                <div class="generation-chart-mockup">
+                  <div class="chart-bar" style="height: 10%;" data-val="0.4 kW"></div>
+                  <div class="chart-bar" style="height: 25%;" data-val="1.1 kW"></div>
+                  <div class="chart-bar" style="height: 48%;" data-val="2.2 kW"></div>
+                  <div class="chart-bar" style="height: 75%;" data-val="3.4 kW"></div>
+                  <div class="chart-bar active" style="height: 92%;" data-val="4.2 kW"></div>
+                  <div class="chart-bar" style="height: 85%;" data-val="3.9 kW"></div>
+                  <div class="chart-bar" style="height: 60%;" data-val="2.8 kW"></div>
+                  <div class="chart-bar" style="height: 30%;" data-val="1.4 kW"></div>
+                  <div class="chart-bar" style="height: 12%;" data-val="0.5 kW"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="dashboard-visuals-panel d-flex flex-column justify-content-center text-center">
+                <h4 class="text-white fs-6 mb-3">System Health Status</h4>
+                <div class="position-relative d-inline-block mx-auto mb-3" style="width: 100px; height: 100px;">
+                  <div class="w-100 h-100 rounded-circle border border-5 border-success border-opacity-70 d-flex align-items-center justify-content-center">
+                    <span class="fw-bold text-success font-monospace" style="font-size: 1.25rem;">98%</span>
+                  </div>
+                </div>
+                <p class="mb-0 text-white-50" style="font-size: 0.85rem;">Inverters running at optimal temperatures.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

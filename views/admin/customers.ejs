@@ -1,0 +1,122 @@
+<section class="section-padding bg-light-mint">
+  <div class="container">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-5 fade-in-up">
+      <div>
+        <span class="text-uppercase text-gold fw-bold tracking-wider">Operational Database</span>
+        <h1 class="h2 text-success mt-1">Converted Customers database</h1>
+        <p class="text-muted">Review details of active installations, capacity sizes, and customer contact information.</p>
+      </div>
+      <div>
+        <a href="/admin/dashboard" class="btn btn-outline-success btn-sm rounded-pill"><i class="bi bi-arrow-left me-1"></i>Back to Dashboard</a>
+      </div>
+    </div>
+
+    <!-- Administrative Mini-Nav Tabs -->
+    <div class="row g-3 mb-5 fade-in-up">
+      <div class="col-md-3">
+        <a href="/admin/dashboard" class="card text-decoration-none bg-white text-dark border-0 shadow-sm h-100 glass-card">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-speedometer2 fs-1 text-success mb-2"></i>
+            <h5 class="mb-0">Main Overview</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="/admin/leads" class="card text-decoration-none bg-white text-dark border-0 shadow-sm h-100 glass-card">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-envelope-paper-fill fs-1 text-success mb-2"></i>
+            <h5 class="mb-0">Leads Inbox</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="/admin/customers" class="card text-decoration-none bg-success text-white border-0 shadow-sm h-100">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-person-badge-fill fs-1 mb-2"></i>
+            <h5 class="mb-0">Customers database</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="/admin/projects" class="card text-decoration-none bg-white text-dark border-0 shadow-sm h-100 glass-card">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-images fs-1 text-success mb-2"></i>
+            <h5 class="mb-0">Showcase gallery</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Table Card -->
+    <div class="card border-0 shadow-sm bg-white p-4 rounded-3 fade-in-up">
+      <h3 class="h5 mb-4 text-success"><i class="bi bi-people-fill me-2"></i>Active Customer Directory (<%= customers.length %>)</h3>
+      
+      <% if (customers && customers.length > 0) { %>
+        <div class="table-responsive">
+          <table class="table table-hover align-middle">
+            <thead>
+              <tr class="table-light text-secondary">
+                <th>Customer ID</th>
+                <th>Contact Details</th>
+                <th>City & Location</th>
+                <th>System Configuration</th>
+                <th>Commission Date</th>
+                <th class="text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% customers.forEach(function(cust) { %>
+                <tr>
+                  <!-- ID -->
+                  <td class="font-monospace text-muted" style="font-size: 0.85rem;">
+                    #<%= cust.id.toString().slice(-6) %>
+                  </td>
+                  
+                  <!-- Contact -->
+                  <td>
+                    <strong><%= cust.fullName %></strong><br>
+                    <span class="small text-muted"><i class="bi bi-telephone-fill me-1"></i><%= cust.mobileNumber %></span><br>
+                    <span class="small text-muted"><i class="bi bi-envelope-fill me-1"></i><%= cust.email %></span>
+                  </td>
+                  
+                  <!-- Location -->
+                  <td>
+                    <i class="bi bi-geo-alt-fill text-gold me-1"></i><%= cust.city %><br>
+                    <span class="small text-muted">PIN: <%= cust.pinCode %></span>
+                  </td>
+                  
+                  <!-- System Details -->
+                  <td>
+                    <span class="badge bg-success text-white mb-1"><%= cust.capacity %></span><br>
+                    <span class="small text-success"><i class="bi bi-cpu-fill me-1"></i><%= cust.systemType %></span>
+                  </td>
+                  
+                  <!-- Joined Date -->
+                  <td class="font-monospace" style="font-size: 0.85rem;">
+                    <%= cust.joinedAt %>
+                  </td>
+                  
+                  <!-- Actions -->
+                  <td>
+                    <div class="d-flex justify-content-center">
+                      <!-- Delete Button -->
+                      <form action="/admin/customers/delete/<%= cust.id %>" method="POST" onsubmit="return confirm('Are you sure you want to remove this customer record?');">
+                        <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill" title="Delete customer record"><i class="bi bi-trash-fill"></i> Remove</button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      <% } else { %>
+        <div class="text-center py-5">
+          <i class="bi bi-person-slash fs-1 text-muted"></i>
+          <p class="text-muted mt-3 mb-0">No customers registered in the portal yet. Convert a lead to register one.</p>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</section>

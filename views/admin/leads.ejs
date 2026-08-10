@@ -1,0 +1,128 @@
+<section class="section-padding bg-light-mint">
+  <div class="container">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-5 fade-in-up">
+      <div>
+        <span class="text-uppercase text-gold fw-bold tracking-wider">Operational Inbox</span>
+        <h1 class="h2 text-success mt-1">Consultation Leads Inbox</h1>
+        <p class="text-muted">Review submitted request forms, contact prospective clients, or convert them into active customers.</p>
+      </div>
+      <div>
+        <a href="/admin/dashboard" class="btn btn-outline-success btn-sm rounded-pill"><i class="bi bi-arrow-left me-1"></i>Back to Dashboard</a>
+      </div>
+    </div>
+
+    <!-- Administrative Mini-Nav Tabs -->
+    <div class="row g-3 mb-5 fade-in-up">
+      <div class="col-md-3">
+        <a href="/admin/dashboard" class="card text-decoration-none bg-white text-dark border-0 shadow-sm h-100 glass-card">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-speedometer2 fs-1 text-success mb-2"></i>
+            <h5 class="mb-0">Main Overview</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="/admin/leads" class="card text-decoration-none bg-success text-white border-0 shadow-sm h-100">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-envelope-paper-fill fs-1 mb-2"></i>
+            <h5 class="mb-0">Leads Inbox</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="/admin/customers" class="card text-decoration-none bg-white text-dark border-0 shadow-sm h-100 glass-card">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-person-badge-fill fs-1 text-success mb-2"></i>
+            <h5 class="mb-0">Customers database</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="/admin/projects" class="card text-decoration-none bg-white text-dark border-0 shadow-sm h-100 glass-card">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-images fs-1 text-success mb-2"></i>
+            <h5 class="mb-0">Showcase gallery</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Table Card -->
+    <div class="card border-0 shadow-sm bg-white p-4 rounded-3 fade-in-up">
+      <h3 class="h5 mb-4 text-success"><i class="bi bi-mailbox me-2"></i>Incoming Leads List (<%= leads.length %>)</h3>
+      
+      <% if (leads && leads.length > 0) { %>
+        <div class="table-responsive">
+          <table class="table table-hover align-middle">
+            <thead>
+              <tr class="table-light text-secondary">
+                <th>Date</th>
+                <th>Contact Details</th>
+                <th>Location Details</th>
+                <th>Solar Profile</th>
+                <th>User Message</th>
+                <th class="text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% leads.forEach(function(lead) { %>
+                <tr>
+                  <!-- Date -->
+                  <td class="font-monospace" style="font-size: 0.85rem;">
+                    <%= new Date(lead.createdAt).toLocaleDateString('en-IN') %><br>
+                    <span class="text-muted"><%= new Date(lead.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) %></span>
+                  </td>
+                  
+                  <!-- Contact -->
+                  <td>
+                    <strong><%= lead.fullName %></strong><br>
+                    <span class="small text-muted"><i class="bi bi-telephone-fill me-1"></i><%= lead.mobileNumber %></span><br>
+                    <span class="small text-muted"><i class="bi bi-envelope-fill me-1"></i><%= lead.email %></span>
+                  </td>
+                  
+                  <!-- Location -->
+                  <td>
+                    <i class="bi bi-geo-alt-fill text-gold me-1"></i><%= lead.city %><br>
+                    <span class="small text-muted">PIN: <%= lead.pinCode %></span>
+                  </td>
+                  
+                  <!-- Solar Profile -->
+                  <td>
+                    <span class="badge bg-success bg-opacity-10 text-success text-capitalize mb-1"><%= lead.propertyType %></span><br>
+                    <span class="small text-muted">Bill: <strong>₹<%= Number(lead.monthlyBill).toLocaleString('en-IN') %></strong></span>
+                  </td>
+                  
+                  <!-- Message -->
+                  <td>
+                    <p class="small mb-0 text-muted" style="max-width: 250px; overflow-wrap: break-word;"><%= lead.message || 'No additional requirements noted.' %></p>
+                  </td>
+                  
+                  <!-- Actions -->
+                  <td>
+                    <div class="d-flex gap-2 justify-content-center">
+                      <!-- Convert Button -->
+                      <form action="/admin/customers/convert/<%= lead.id %>" method="POST">
+                        <button type="submit" class="btn btn-success btn-sm rounded-pill px-3" title="Convert to customer"><i class="bi bi-person-check-fill me-1"></i>Convert</button>
+                      </form>
+
+                      <!-- Delete Button -->
+                      <form action="/admin/leads/delete/<%= lead.id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this lead?');">
+                        <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill" title="Delete lead"><i class="bi bi-trash-fill"></i></button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      <% } else { %>
+        <div class="text-center py-5">
+          <i class="bi bi-inbox fs-1 text-muted"></i>
+          <p class="text-muted mt-3 mb-0">No solar leads received yet. Check back later!</p>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</section>

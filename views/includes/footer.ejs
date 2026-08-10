@@ -1,0 +1,72 @@
+<footer class="footer-section">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Logo & Tagline -->
+      <div class="col-lg-4 col-md-6">
+        <a class="footer-logo" href="/">
+          <img src="/public/images/logo.png" alt="Sky Solar Logo" style="height: 55px; width: auto;" class="d-inline-block align-top bg-white p-2 rounded">
+        </a>
+        <p class="mb-4">Powering a cleaner, smarter, and more sustainable future. Turn sunlight into savings today.</p>
+        <div class="social-icons-wrapper">
+          <a href="https://instagram.com" class="social-icon" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://linkedin.com" class="social-icon" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://youtube.com" class="social-icon" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="https://facebook.com" class="social-icon" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h3 class="footer-heading">Solutions</h3>
+        <ul class="footer-links">
+          <li><a href="/solar">Residential Solar</a></li>
+          <li><a href="/solar">Commercial Solar</a></li>
+          <li><a href="/solar">Housing Societies</a></li>
+          <li><a href="/solar#systems">On-Grid Solar</a></li>
+          <li><a href="/solar#systems">Off-Grid Solar</a></li>
+          <li><a href="/solar#systems">Hybrid Solar</a></li>
+        </ul>
+      </div>
+
+      <!-- Company & Info -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h3 class="footer-heading">Company</h3>
+        <ul class="footer-links">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/about#timeline">How It Works</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">Help Desk</a></li>
+          <% if (!locals.isAdmin) { %>
+            <li><a href="/admin/login">Admin Login</a></li>
+          <% } %>
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div class="col-lg-4 col-md-6">
+        <h3 class="footer-heading">Resources</h3>
+        <ul class="footer-links">
+          <li><a href="/solar#calculator">Savings Calculator</a></li>
+          <li><a href="/faq">FAQs</a></li>
+          <li><a href="/about#subsidy">Govt. Subsidy Checker</a></li>
+        </ul>
+        <p class="mt-4 mb-2"><i class="bi bi-envelope-fill me-2"></i> info@skysolar.in</p>
+        <p><i class="bi bi-telephone-fill me-2"></i> +91-9876543210</p>
+      </div>
+    </div>
+
+    <!-- Bottom Links -->
+    <div class="row footer-bottom">
+      <div class="col-md-6 text-center text-md-start">
+        <p class="mb-0">&copy; 2026 Sky Solar. All Rights Reserved.</p>
+      </div>
+      <div class="col-md-6">
+        <div class="footer-bottom-links">
+          <a href="/">Privacy Policy</a>
+          <a href="/">Terms & Conditions</a>
+          <a href="/">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

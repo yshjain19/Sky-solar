@@ -1,0 +1,172 @@
+<section class="section-padding bg-light-mint">
+  <div class="container">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-5 fade-in-up">
+      <div>
+        <span class="text-uppercase text-gold fw-bold tracking-wider">Asset Management</span>
+        <h1 class="h2 text-success mt-1">Showcase Projects Manager</h1>
+        <p class="text-muted">Review, add, or delete projects displayed in the public showcase gallery portfolio.</p>
+      </div>
+      <div>
+        <a href="/admin/dashboard" class="btn btn-outline-success btn-sm rounded-pill"><i class="bi bi-arrow-left me-1"></i>Back to Dashboard</a>
+      </div>
+    </div>
+
+    <!-- Administrative Mini-Nav Tabs -->
+    <div class="row g-3 mb-5 fade-in-up">
+      <div class="col-md-3">
+        <a href="/admin/dashboard" class="card text-decoration-none bg-white text-dark border-0 shadow-sm h-100 glass-card">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-speedometer2 fs-1 text-success mb-2"></i>
+            <h5 class="mb-0">Main Overview</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="/admin/leads" class="card text-decoration-none bg-white text-dark border-0 shadow-sm h-100 glass-card">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-envelope-paper-fill fs-1 text-success mb-2"></i>
+            <h5 class="mb-0">Leads Inbox</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="/admin/customers" class="card text-decoration-none bg-white text-dark border-0 shadow-sm h-100 glass-card">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-person-badge-fill fs-1 text-success mb-2"></i>
+            <h5 class="mb-0">Customers database</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="/admin/projects" class="card text-decoration-none bg-success text-white border-0 shadow-sm h-100">
+          <div class="card-body p-4 text-center">
+            <i class="bi bi-images fs-1 mb-2"></i>
+            <h5 class="mb-0">Showcase gallery</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="row g-4 fade-in-up">
+      <!-- Add Project Form Panel -->
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm bg-white p-4 rounded-3">
+          <h3 class="h5 mb-4 text-success"><i class="bi bi-plus-circle-fill me-2"></i>Add Showcase Project</h3>
+          
+          <form action="/admin/projects/new" method="POST" enctype="multipart/form-data" novalidate class="needs-validation">
+            <div class="mb-3">
+              <label for="proj-title" class="form-label">Project Title</label>
+              <input type="text" name="title" class="form-control form-control-custom" id="proj-title" placeholder="e.g. Oberoi Tower Grid" required>
+            </div>
+            
+            <div class="mb-3">
+              <label for="proj-location" class="form-label">Location</label>
+              <input type="text" name="location" class="form-control form-control-custom" id="proj-location" placeholder="e.g. Mumbai, Maharashtra" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="proj-capacity" class="form-label">System Size (kW)</label>
+              <input type="text" name="capacity" class="form-control form-control-custom" id="proj-capacity" placeholder="e.g. 15 kW" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="proj-category" class="form-label">Category</label>
+              <select name="category" class="form-select form-control-custom" id="proj-category" required>
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="apartments">Apartments</option>
+                <option value="industrial">Industrial</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="proj-type" class="form-label">System Architecture Type</label>
+              <select name="type" class="form-select form-control-custom" id="proj-type" required>
+                <option value="On-Grid Solar">On-Grid Solar</option>
+                <option value="Off-Grid Solar">Off-Grid Solar</option>
+                <option value="Hybrid Solar">Hybrid Solar</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="proj-file" class="form-label">Upload Showcase Image</label>
+              <input type="file" name="projectImage" class="form-control form-control-custom" id="proj-file">
+              <div class="form-text text-muted" style="font-size: 0.8rem;">Upload a custom image. If empty, the selection below is used.</div>
+            </div>
+
+            <div class="mb-4">
+              <label for="proj-image" class="form-label">Or Select Preset Image</label>
+              <select name="image" class="form-select form-control-custom" id="proj-image" required>
+                <option value="./public/images/residential_solar.png">Residential Setup (Default)</option>
+                <option value="./public/images/commercial_solar.png">Corporate Setup</option>
+                <option value="./public/images/apartment_solar.png">Apartment Blocks</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-premium-primary w-100 py-2">Add to Public Showcase</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Projects Grid Viewer Panel -->
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm bg-white p-4 rounded-3">
+          <h3 class="h5 mb-4 text-success"><i class="bi bi-collection-play-fill me-2"></i>Current Showcase Items (<%= projects.length %>)</h3>
+          
+          <% if (projects && projects.length > 0) { %>
+            <div class="table-responsive">
+              <table class="table table-hover align-middle">
+                <thead>
+                  <tr class="table-light text-secondary">
+                    <th>Thumbnail</th>
+                    <th>Project Info</th>
+                    <th>Size & Type</th>
+                    <th class="text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% projects.forEach(function(proj) { %>
+                    <tr>
+                      <!-- Thumbnail -->
+                      <td style="width: 100px;">
+                        <img src="<%= proj.image %>" alt="<%= proj.title %>" class="img-thumbnail rounded" style="width: 80px; height: 60px; object-fit: cover;">
+                      </td>
+                      
+                      <!-- Info -->
+                      <td>
+                        <strong><%= proj.title %></strong><br>
+                        <span class="small text-muted"><i class="bi bi-geo-alt-fill me-1"></i><%= proj.location %></span><br>
+                        <span class="badge bg-light text-dark text-capitalize" style="font-size: 0.75rem;"><%= proj.category %></span>
+                      </td>
+                      
+                      <!-- Config -->
+                      <td>
+                        <span class="badge bg-success bg-opacity-10 text-success"><%= proj.capacity %></span><br>
+                        <span class="small text-muted font-monospace"><%= proj.type %></span>
+                      </td>
+                      
+                      <!-- Actions -->
+                      <td>
+                        <div class="d-flex justify-content-center">
+                          <form action="/admin/projects/delete/<%= proj.id %>" method="POST" onsubmit="return confirm('Are you sure you want to remove this project?');">
+                            <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill" title="Delete project"><i class="bi bi-trash-fill me-1"></i>Delete</button>
+                          </form>
+                        </div>
+                      </td>
+                    </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          <% } else { %>
+            <div class="text-center py-5">
+              <i class="bi bi-image-alt fs-1 text-muted"></i>
+              <p class="text-muted mt-3 mb-0">No projects added to the showcase yet. Add one using the form!</p>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
