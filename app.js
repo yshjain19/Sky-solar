@@ -98,6 +98,16 @@ app.use((req, res, next) => {
   next();
 });
 
+// Set dynamic site URL for use in templates (can be overridden with SITE_URL env var)
+app.use((req, res, next) => {
+  const forwardedProto = req.headers['x-forwarded-proto'];
+  const protocol = forwardedProto || req.protocol;
+  const host = req.get('host');
+  const detected = `${protocol}://${host}`;
+  res.locals.siteUrl = process.env.SITE_URL || detected;
+  next();
+});
+
 // Serve sitemap.xml and robots.txt from project root
 app.get('/sitemap.xml', (req, res) => {
   res.setHeader('Content-Type', 'application/xml');
