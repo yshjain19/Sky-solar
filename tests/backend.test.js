@@ -60,7 +60,6 @@ async function runMongooseTests() {
       testAssert(err.errors.fullName !== undefined, 'Validation should catch short fullName');
       testAssert(err.errors.mobileNumber !== undefined, 'Validation should catch invalid Indian mobile pattern');
       testAssert(err.errors.email !== undefined, 'Validation should catch malformed email');
-      testAssert(err.errors.city !== undefined, 'Validation should catch empty city');
       testAssert(err.errors.pinCode !== undefined, 'Validation should catch invalid PIN Code length');
       testAssert(err.errors.propertyType !== undefined, 'Validation should catch bad propertyType enum');
       testAssert(err.errors.monthlyBill !== undefined, 'Validation should catch negative monthlyBill');
@@ -70,8 +69,8 @@ async function runMongooseTests() {
       fullName: 'Siddharth Patel',
       mobileNumber: '9876543210',
       email: 'sid.patel@gmail.com',
-      city: 'Pune',
-      pinCode: '411001',
+      city: 'Indore',
+      pinCode: '452001',
       propertyType: 'commercial',
       monthlyBill: 5500
     });
@@ -90,7 +89,7 @@ async function runMongooseTests() {
     
     const testProject = await Project.create({
       title: 'Mongoose Test Villa',
-      location: 'Ahmedabad, Gujarat',
+      location: 'Indore, Madhya Pradesh',
       capacity: '6.5 kW',
       category: 'residential',
       type: 'Hybrid Solar',

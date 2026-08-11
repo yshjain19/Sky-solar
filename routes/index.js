@@ -6,8 +6,6 @@ const catchAsync = require('../utils/catchAsync');
 // GET / (Home Page)
 router.get('/', catchAsync(homeController.renderHome));
 
-// GET /solar (Solar Solutions, Systems & Calculator)
-router.get('/solar', homeController.renderSolar);
 
 // GET /about (Mission, Timeline & Subsidy Info)
 router.get('/about', homeController.renderAbout);

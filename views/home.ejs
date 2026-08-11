@@ -1,181 +1,326 @@
-<!-- HERO SECTION -->
+<!-- HERO SECTION WITH QUICK ESTIMATOR -->
 <section class="hero-section">
   <div class="container">
     <div class="row align-items-center g-5">
+      <!-- Left side: Value Prop & Trust badges -->
       <div class="col-lg-6 hero-content fade-in-up" id="hero-left">
         <div class="hero-stats-badge">
-          <i class="bi bi-shield-check-fill"></i> Best-in-class Rooftop Solar Solutions
+          <i class="bi bi-patch-check-fill text-primary"></i> India's Safest Rooftop Solar Partner
         </div>
-        <h1>Turn Sunlight Into Savings.</h1>
-        <p>Smart rooftop solar solutions designed to reduce your electricity bills and power your future with clean, sustainable energy.</p>
-        
-        <div class="d-flex flex-wrap gap-3">
-          <a href="/contact" class="btn btn-premium-primary">Get Free Solar Consultation</a>
-          <a href="/solar#calculator" class="btn btn-premium-secondary text-white border-white">Calculate Your Savings</a>
-        </div>
+        <h1>The Future is Solar. <br><span class="text-gradient-accent">Bring it Home Today.</span></h1>
+        <p class="fs-4 text-secondary mt-3 mb-4">With India’s No. 1 Home Solar Brand.</p>
 
-        <!-- Trust Stats Row -->
-        <div class="hero-stats-grid row g-3 text-center text-md-start">
-          <div class="col-6 col-md-3 hero-stat-item">
-            <h3 class="counter-value" data-target="10000">10,000+</h3>
-            <p>Happy Customers</p>
-          </div>
-          <div class="col-6 col-md-3 hero-stat-item">
-            <h3 class="counter-value" data-target="50">50+</h3>
-            <p>MW Installed</p>
-          </div>
-          <div class="col-6 col-md-3 hero-stat-item">
-            <h3 class="counter-value" data-target="25">25+</h3>
-            <p>Years Panel Life</p>
-          </div>
-          <div class="col-6 col-md-3 hero-stat-item">
-            <h3 class="counter-value" data-target="100">100%</h3>
-            <p>Expert Install</p>
-          </div>
+        <div class="d-flex flex-wrap gap-3 mt-4 pt-2">
+          <a href="/contact" class="btn btn-premium-primary py-3 px-4"><i class="bi bi-calendar2-check-fill me-2"></i>Get a FREE Consultation</a>
         </div>
       </div>
       
-      <div class="col-lg-6 hero-image-wrapper text-center">
-        <img src="/public/images/hero_bg.png" alt="Sky Solar Premium Rooftop Installation" class="img-fluid rounded-4">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY CHOOSE SKY SOLAR -->
-<section class="section-padding">
-  <div class="container">
-    <div class="text-center mb-5 fade-in-up">
-      <h2 class="section-title">Why Choose Sky Solar?</h2>
-      <p class="text-muted mx-auto" style="max-width: 600px;">We deliver seamless, end-to-end solar solutions optimized for peak output and hassle-free long-term savings.</p>
-    </div>
-    
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3 fade-in-up">
-        <div class="feature-card">
-          <div class="feature-icon-wrapper">
-            <i class="bi bi-pencil-square"></i>
+      <!-- Right side: SolarSquare Quick Estimator Widget -->
+      <div class="col-lg-6 fade-in-up">
+        <div class="hero-estimator-card">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3 class="mb-0 text-success"><i class="bi bi-lightning-charge-fill me-2 text-gold"></i>Savings Estimator</h3>
+            <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-2 py-1">Instant Estimate</span>
           </div>
-          <h3>Smart Solar Design</h3>
-          <p class="text-muted">Customized layout designed around your roof's shadow paths and monthly power bills to ensure maximum sun capture.</p>
-        </div>
-      </div>
-      
-      <div class="col-md-6 col-lg-3 fade-in-up">
-        <div class="feature-card">
-          <div class="feature-icon-wrapper">
-            <i class="bi bi-tools"></i>
+          <p class="text-muted small mb-4">Estimate your recommended system size and lifetime savings instantly based on your state's tariff.</p>
+          
+          <div class="mb-4">
+            <label for="quick-state" class="form-label fw-semibold text-dark">Select Your State</label>
+            <select class="form-select form-control-custom" id="quick-state">
+              <option value="mp" selected>Madhya Pradesh (MPPKVVCL - Indore)</option>
+              <option value="maharashtra">Maharashtra (MSEDCL/Adani)</option>
+              <option value="karnataka">Karnataka (BESCOM)</option>
+              <option value="delhi">Delhi (BSES/BYPL)</option>
+              <option value="gujarat">Gujarat (MGVCL/PGVCL)</option>
+              <option value="telangana">Telangana (TSSPDCL)</option>
+              <option value="tamilnadu">Tamil Nadu (TANGEDCO)</option>
+              <option value="other">Other / Multi-State Avg</option>
+            </select>
           </div>
-          <h3>Hassle-Free Install</h3>
-          <p class="text-muted">Full-service technical installation handles initial feasibility surveys, safety permissions, and final grid commissioning.</p>
-        </div>
-      </div>
-      
-      <div class="col-md-6 col-lg-3 fade-in-up">
-        <div class="feature-card">
-          <div class="feature-icon-wrapper">
-            <i class="bi bi-tags"></i>
+
+          <div class="mb-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <label for="quick-bill-slider" class="form-label fw-semibold text-dark mb-0">Average Monthly Electricity Bill</label>
+              <span id="quick-bill-display" class="fw-bold text-success fs-5">₹4,000</span>
+            </div>
+            <input type="range" class="estimator-range" id="quick-bill-slider" min="1000" max="30000" step="500" value="4000">
+            <div class="d-flex justify-content-between text-muted small">
+              <span>₹1,000</span>
+              <span>₹15,000</span>
+              <span>₹30,000+</span>
+            </div>
           </div>
-          <h3>Transparent Pricing</h3>
-          <p class="text-muted">Honest component quotes without hidden fees or surprise maintenance premiums. You pay exactly what we promise.</p>
-        </div>
-      </div>
-      
-      <div class="col-md-6 col-lg-3 fade-in-up">
-        <div class="feature-card">
-          <div class="feature-icon-wrapper">
-            <i class="bi bi-chat-heart"></i>
-          </div>
-          <h3>Reliable Support</h3>
-          <p class="text-muted">Round-the-clock remote energy audits, yearly panel tuneups, and fast on-site support to keep your systems running.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- SOLAR IMPACT -->
-<section class="section-padding bg-dark text-white text-center position-relative overflow-hidden" style="background: linear-gradient(rgba(15, 76, 58, 0.95), rgba(26, 31, 38, 0.98));">
-  <div class="container py-4">
-    <div class="text-center mb-5 fade-in-up">
-      <h2 class="text-white">Our Environmental Impact</h2>
-      <p class="text-white-50 mx-auto" style="max-width: 600px;">Every panel we install helps reduce fossil fuel dependency. See our combined progress:</p>
-    </div>
-    
-    <div class="row g-4">
-      <div class="col-md-3 fade-in-up">
-        <div class="impact-stat-card">
-          <h3 class="counter-val" data-target="10000">0</h3>
-          <p>Homes Powered</p>
-        </div>
-      </div>
-      <div class="col-md-3 fade-in-up">
-        <div class="impact-stat-card">
-          <h3 class="counter-val" data-target="50">0</h3>
-          <p>MW Solar Capacity Installed</p>
-        </div>
-      </div>
-      <div class="col-md-3 fade-in-up">
-        <div class="impact-stat-card">
-          <h3 class="counter-val" data-target="25">0</h3>
-          <p>Years Panel Lifespan</p>
-        </div>
-      </div>
-      <div class="col-md-3 fade-in-up">
-        <div class="impact-stat-card">
-          <h3 class="counter-val" data-target="72500">0</h3>
-          <p>Tons CO₂ Reduced</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECT SHOWCASE -->
-<section class="section-padding">
-  <div class="container">
-    <div class="text-center mb-5 fade-in-up">
-      <h2>Featured Projects Portfolio</h2>
-      <p class="text-muted mx-auto" style="max-width: 600px;">Take a look at some of our premium installations delivering real savings for our partners.</p>
-      
-      <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
-        <button class="gallery-filter-btn active" data-filter="all">All Projects</button>
-        <button class="gallery-filter-btn" data-filter="residential">Residential</button>
-        <button class="gallery-filter-btn" data-filter="commercial">Commercial</button>
-        <button class="gallery-filter-btn" data-filter="apartments">Apartments</button>
-        <button class="gallery-filter-btn" data-filter="industrial">Industrial</button>
-      </div>
-    </div>
-
-    <div class="row g-4" id="project-gallery-grid">
-      <% if (locals.projects && projects.length > 0) { %>
-        <% projects.forEach(function(proj) { %>
-          <div class="col-md-6 col-lg-4 project-item fade-in-up" data-category="<%= proj.category %>">
-            <div class="project-card">
-              <div class="project-img-wrapper">
-                <img src="<%= proj.image %>" alt="<%= proj.title %>" loading="lazy">
-                <span class="project-badge"><%= proj.type %></span>
+          <!-- Estimator Outputs Grid -->
+          <div class="row g-3 mb-4">
+            <div class="col-6">
+              <div class="p-3 bg-light border rounded-3 text-center">
+                <span class="text-muted small d-block mb-1">Recommended Solar</span>
+                <span id="quick-capacity" class="fw-bold fs-4 text-dark">-- kW</span>
               </div>
-              <div class="project-details">
-                <h4><%= proj.title %></h4>
-                <p class="meta"><i class="bi bi-geo-alt-fill text-gold me-1"></i> <%= proj.location %> | <strong><%= proj.capacity %></strong></p>
+            </div>
+            <div class="col-6">
+              <div class="p-3 bg-light border rounded-3 text-center">
+                <span class="text-muted small d-block mb-1">Est. Monthly Savings</span>
+                <span id="quick-monthly-savings" class="fw-bold fs-4 text-success">₹--</span>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="p-3 bg-success-subtle border border-success-subtle rounded-3 text-center">
+                <span class="text-success-emphasis small d-block mb-1 fw-semibold"><i class="bi bi-gift-fill me-1"></i>Est. 25-Year Lifetime Savings</span>
+                <span id="quick-lifetime-savings" class="fw-bold fs-3 text-success">₹--</span>
               </div>
             </div>
           </div>
-        <% }); %>
-      <% } else { %>
-        <div class="col-12 text-center text-muted">No featured projects found.</div>
-      <% } %>
+
+          <a href="/contact" id="quick-book-btn" class="btn btn-premium-primary w-100 py-3"><i class="bi bi-calendar2-check-fill me-2"></i>Book Free Site Survey</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CUSTOMER TESTIMONIALS -->
+<!-- PM SURYA GHAR SUBSIDY GUIDE -->
+<section class="section-padding bg-light-mint">
+  <div class="container">
+    <div class="text-center mb-5 fade-in-up">
+      <span class="tech-badge-inline">Government Subsidy</span>
+      <h2>PM Surya Ghar Muft Bijli Yojana</h2>
+      <p class="text-muted mx-auto" style="max-width: 600px;">Save up to ₹78,000 in direct government subsidies when you install rooftop solar for your home.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- 1 kW Subsidy Card -->
+      <div class="col-md-4 fade-in-up">
+        <div class="subsidy-card text-center">
+          <span class="badge bg-primary text-white rounded-pill px-3 py-1 fw-bold">1 kW System</span>
+          <div class="subsidy-value">₹30,000</div>
+          <p class="text-muted mb-0">Direct subsidy credited directly to your bank account post net-meter commissioning.</p>
+        </div>
+      </div>
+
+      <!-- 2 kW Subsidy Card -->
+      <div class="col-md-4 fade-in-up">
+        <div class="subsidy-card text-center">
+          <span class="badge bg-primary text-white rounded-pill px-3 py-1 fw-bold">2 kW System</span>
+          <div class="subsidy-value">₹60,000</div>
+          <p class="text-muted mb-0">Direct subsidy credit. Optimal for medium homes with average monthly bills.</p>
+        </div>
+      </div>
+
+      <!-- 3 kW+ Subsidy Card -->
+      <div class="col-md-4 fade-in-up">
+        <div class="subsidy-card text-center">
+          <span class="badge bg-primary text-white rounded-pill px-3 py-1 fw-bold">3 kW - 10 kW System</span>
+          <div class="subsidy-value">₹78,000</div>
+          <p class="text-muted mb-0">Maximum flat subsidy limit under the national solar program. Best long-term ROI.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- STEP BY STEP PROCESS WORKFLOW -->
+<section class="section-padding bg-light-mint">
+  <div class="container">
+    <div class="text-center mb-5 fade-in-up">
+      <span class="tech-badge-inline">The Journey</span>
+      <h2>Your Road to Solar Savings in 4 Steps</h2>
+      <p class="text-muted mx-auto" style="max-width: 600px;">From the initial click to final commissioning, we take care of everything.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 fade-in-up">
+        <div class="journey-card">
+          <span class="journey-step-num">01</span>
+          <div class="journey-icon">
+            <i class="bi bi-clipboard2-data"></i>
+          </div>
+          <h4 class="fw-bold">Free Feasibility</h4>
+          <p class="text-muted small">Our engineer visits your property to inspect roof size, orientation, and shadow paths.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 fade-in-up">
+        <div class="journey-card">
+          <span class="journey-step-num">02</span>
+          <div class="journey-icon">
+            <i class="bi bi-vector-pen"></i>
+          </div>
+          <h4 class="fw-bold">3D Layout Design</h4>
+          <p class="text-muted small">We generate a custom 3D model of your rooftop, detailing panel angles for maximum sunlight capture.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 fade-in-up">
+        <div class="journey-card">
+          <span class="journey-step-num">03</span>
+          <div class="journey-icon">
+            <i class="bi bi-file-earmark-ruled"></i>
+          </div>
+          <h4 class="fw-bold">Paperless Approvals</h4>
+          <p class="text-muted small">We manage all local DISCOM paperwork, net-metering approvals, and government subsidy filings.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 fade-in-up">
+        <div class="journey-card">
+          <span class="journey-step-num">04</span>
+          <div class="journey-icon">
+            <i class="bi bi-cloud-sun"></i>
+          </div>
+          <h4 class="fw-bold">Active Commission</h4>
+          <p class="text-muted small">We install your system, configure the IoT monitoring app, and hand over the keys to lifetime savings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON GRID -->
+<section class="section-padding">
+  <div class="container">
+    <div class="text-center mb-5 fade-in-up">
+      <span class="tech-badge-inline">Comparison Guide</span>
+      <h2>Sky Solar vs. Local Unorganized Vendors</h2>
+      <p class="text-muted mx-auto" style="max-width: 600px;">Understand what makes us India's premium rooftop solar brand compared to standard local operators.</p>
+    </div>
+
+    <div class="comparison-table-wrapper table-responsive fade-in-up">
+      <table class="table comparison-table">
+        <thead>
+          <tr>
+            <th class="text-start">Feature / Standard</th>
+            <th>Sky Solar Partner</th>
+            <th>Local Vendor / Operator</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Engineering Structure</td>
+            <td><span class="status-yes"><i class="bi bi-check-circle-fill me-1"></i> IIT-Bombay Certified WindPro™ Mounts (150 km/h wind proof)</span></td>
+            <td><span class="status-no"><i class="bi bi-x-circle-fill me-1"></i> Standard pipe mountings (unverified wind loads)</span></td>
+          </tr>
+          <tr>
+            <td>Maintenance Contract</td>
+            <td><span class="status-yes"><i class="bi bi-check-circle-fill me-1"></i> 5-Year comprehensive SkyCare™ active maintenance contract</span></td>
+            <td><span class="status-no"><i class="bi bi-x-circle-fill me-1"></i> No structured maintenance contract (ad-hoc calls only)</span></td>
+          </tr>
+          <tr>
+            <td>Output Guarantee</td>
+            <td><span class="status-yes"><i class="bi bi-check-circle-fill me-1"></i> GoodZero™ output guarantee (cashback on shortfall)</span></td>
+            <td><span class="status-no"><i class="bi bi-x-circle-fill me-1"></i> No output guarantee or validation</span></td>
+          </tr>
+          <tr>
+            <td>Remote Monitoring</td>
+            <td><span class="status-yes"><i class="bi bi-check-circle-fill me-1"></i> IoT App telemetry with daily alerts and health checking</span></td>
+            <td><span class="status-no"><i class="bi bi-x-circle-fill me-1"></i> Manual checking of inverter display only</span></td>
+          </tr>
+          <tr>
+            <td>Subsidy Filing</td>
+            <td><span class="status-yes"><i class="bi bi-check-circle-fill me-1"></i> Fully paperless subsidy processing and registry</span></td>
+            <td><span class="status-no"><i class="bi bi-x-circle-fill me-1"></i> Customer has to manually file and track with DISCOM</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- APP SHOWCASE -->
+<section class="section-padding bg-light-mint">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 fade-in-up">
+        <span class="tech-badge-inline">Smart Telemetry</span>
+        <h2>Track Your Generation & Savings in Real-Time</h2>
+        <p class="text-muted mt-3">Every installation includes lifetime access to the Sky Solar Smart App. Log in to check exactly how much energy your rooftop is generating and track your financial savings.</p>
+        
+        <ul class="app-features-list">
+          <li>
+            <i class="bi bi-phone-vibrate-fill"></i>
+            <div>
+              <h5 class="text-dark fw-bold">Live Generation Alerts</h5>
+              <p class="text-muted">Track generation updates directly from your smartphone, with hour-by-hour telemetry graphs.</p>
+            </div>
+          </li>
+          <li>
+            <i class="bi bi-activity"></i>
+            <div>
+              <h5 class="text-dark fw-bold">Proactive System Diagnostics</h5>
+              <p class="text-muted">Receive auto-alerts in case of grid outages, panel dirt collection, or load imbalances.</p>
+            </div>
+          </li>
+          <li>
+            <i class="bi bi-calendar2-check-fill"></i>
+            <div>
+              <h5 class="text-dark fw-bold">One-Tap SkyCare™ Scheduling</h5>
+              <p class="text-muted">Schedule your quarterly panel cleanup or ask for engineering support with a single tap.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Live Mockup Dashboard -->
+      <div class="col-lg-6 fade-in-up">
+        <div class="dashboard-mockup">
+          <div class="dashboard-header bg-dark text-white border-bottom border-secondary-subtle">
+            <div class="dashboard-dot-container">
+              <span class="dashboard-dot dot-red"></span>
+              <span class="dashboard-dot dot-yellow"></span>
+              <span class="dashboard-dot dot-green"></span>
+            </div>
+            <div class="dashboard-title text-white-50">Sky Solar App Telemetry</div>
+            <div><span class="badge bg-success py-1 px-2 rounded-pill" style="font-size: 0.75rem;"><i class="bi bi-circle-fill me-1" style="font-size: 0.5rem; vertical-align: middle;"></i> Grid Online</span></div>
+          </div>
+          
+          <div class="dashboard-body bg-dark text-white">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="dashboard-stat-card bg-secondary bg-opacity-25 border-0">
+                  <h4 class="text-white-50 small text-uppercase">Today's Solar Output</h4>
+                  <div class="val text-white fs-3 font-headings fw-bold">18.4 <span class="fs-6 fw-normal text-white-50">kWh</span></div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="dashboard-stat-card bg-secondary bg-opacity-25 border-0">
+                  <h4 class="text-white-50 small text-uppercase">This Month's Savings</h4>
+                  <div class="val text-success fs-3 font-headings fw-bold">₹2,976</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chart Mockup -->
+            <div class="p-3 bg-secondary bg-opacity-10 border border-secondary-subtle rounded-3 mt-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0 text-white fs-6">Hourly Power Output (kW)</h4>
+                <span class="text-white-50 font-monospace" style="font-size: 0.75rem;">12:00 PM Peak</span>
+              </div>
+              <div class="generation-chart-mockup" style="height: 100px;">
+                <div class="chart-bar" style="height: 10%;" data-val="0.4 kW"></div>
+                <div class="chart-bar" style="height: 30%;" data-val="1.2 kW"></div>
+                <div class="chart-bar" style="height: 60%;" data-val="2.4 kW"></div>
+                <div class="chart-bar active" style="height: 95%;" data-val="4.2 kW"></div>
+                <div class="chart-bar" style="height: 70%;" data-val="3.1 kW"></div>
+                <div class="chart-bar" style="height: 20%;" data-val="0.8 kW"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CUSTOMER TESTIMONIALS (SolarSquare Style Rating & Savings Tags) -->
 <section class="section-padding testimonials-section">
   <div class="container">
     <div class="text-center mb-5 fade-in-up">
-      <h2>Word From Our Solar Partners</h2>
-      <p class="text-muted mx-auto" style="max-width: 600px;">Read honest reviews from families and business owners who switched to Sky Solar.</p>
+      <span class="tech-badge-inline">Success Stories</span>
+      <h2>What Our Solar Partners Say</h2>
+      <p class="text-muted mx-auto" style="max-width: 600px;">Verified reviews from families and business owners who switched to Sky Solar.</p>
     </div>
 
     <!-- Carousel -->
@@ -185,20 +330,23 @@
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <div class="testimonial-bubble">
-                <div class="stars-rating">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                  <div class="stars-rating mb-0">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <span class="savings-tag"><i class="bi bi-piggy-bank-fill"></i> Annual Savings: ₹54,000+</span>
                 </div>
                 <p class="fs-5 text-dark italic font-serif">"Sky Solar reduced our monthly electricity bill from Rs. 4,500 to almost zero! The team was highly professional, handling everything from society approvals to standard commissioning in record time."</p>
               </div>
               <div class="testimonial-author">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150" alt="Rajesh Kumar">
                 <div>
-                  <h5>Rajesh Kumar</h5>
-                  <span>Bengaluru, India</span>
+                  <h5 class="fw-bold">Rajesh Kumar</h5>
+                  <span>Indore, India</span>
                 </div>
               </div>
             </div>
@@ -209,20 +357,23 @@
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <div class="testimonial-bubble">
-                <div class="stars-rating">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                  <div class="stars-rating mb-0">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <span class="savings-tag"><i class="bi bi-piggy-bank-fill"></i> Annual Savings: ₹35,000+</span>
                 </div>
                 <p class="fs-5 text-dark italic font-serif">"Installing on-grid solar with Sky Solar has been our best financial decision. The real-time mobile app monitoring is super helpful. Highly recommend their transparent pricing and reliable support."</p>
               </div>
               <div class="testimonial-author">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150" alt="Priyanka Sharma">
                 <div>
-                  <h5>Priyanka Sharma</h5>
-                  <span>Delhi NCR, India</span>
+                  <h5 class="fw-bold">Priyanka Sharma</h5>
+                  <span>Indore, India</span>
                 </div>
               </div>
             </div>
@@ -233,20 +384,23 @@
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <div class="testimonial-bubble">
-                <div class="stars-rating">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                  <div class="stars-rating mb-0">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <span class="savings-tag"><i class="bi bi-piggy-bank-fill"></i> Annual Savings: ₹1,80,000+</span>
                 </div>
                 <p class="fs-5 text-dark italic font-serif">"We installed a 150 kW commercial system for our warehouse. Our operational savings have boosted our margins significantly. Payback period is looking like 4 years instead of 5!"</p>
               </div>
               <div class="testimonial-author">
                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150" alt="Amit Patel">
                 <div>
-                  <h5>Amit Patel</h5>
-                  <span>Ahmedabad, India</span>
+                  <h5 class="fw-bold">Amit Patel</h5>
+                  <span>Indore, India</span>
                 </div>
               </div>
             </div>
@@ -266,16 +420,74 @@
   </div>
 </section>
 
+<!-- TECHNOLOGY PARTNERS -->
+<section class="section-padding bg-light-mint">
+  <div class="container">
+    <div class="text-center mb-5 fade-in-up">
+      <span class="tech-badge-inline">Authorized Partners</span>
+      <h2>Industry-Leading Solar Component Partners</h2>
+      <p class="text-muted mx-auto" style="max-width: 600px;">We only source from tier-1 global manufacturers to ensure maximum generation efficiency and long-term durability.</p>
+    </div>
+
+    <div class="partner-profile-grid fade-in-up">
+      <!-- Adani Solar -->
+      <div class="partner-profile-card">
+        <div class="partner-profile-header">
+          <div class="partner-profile-logo">ADANI <span>Solar</span></div>
+          <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-1 rounded-pill" style="font-size: 0.8rem;">Tier 1 Cells</span>
+        </div>
+        <p class="partner-profile-desc mb-0">Part of Adani Enterprises, operates a massive integrated cell-to-module manufacturing facility in Mundra, Gujarat. Focuses heavily on utility-scale, commercial, and government green energy projects.</p>
+      </div>
+
+      <!-- Tata Power Solar -->
+      <div class="partner-profile-card">
+        <div class="partner-profile-header">
+          <div class="partner-profile-logo">TATA <span>Power Solar</span></div>
+          <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-1 rounded-pill" style="font-size: 0.8rem;">EPC Leader</span>
+        </div>
+        <p class="partner-profile-desc mb-0">A subsidiary of Tata Power, offering trusted end-to-end EPC (Engineering, Procurement, and Construction) and rooftop solar solutions with strong brand credibility and institutional backing.</p>
+      </div>
+
+      <!-- Waaree Energies -->
+      <div class="partner-profile-card">
+        <div class="partner-profile-header">
+          <div class="partner-profile-logo">WAAREE <span>Energies</span></div>
+          <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-1 rounded-pill" style="font-size: 0.8rem;">Largest Manufacturer</span>
+        </div>
+        <p class="partner-profile-desc mb-0">India's largest solar module manufacturer by capacity with plants in Gujarat and Karnataka, known for an extensive nationwide dealer and installer network.</p>
+      </div>
+
+      <!-- Avaada Group -->
+      <div class="partner-profile-card">
+        <div class="partner-profile-header">
+          <div class="partner-profile-logo">AVAADA <span>Group</span></div>
+          <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-1 rounded-pill" style="font-size: 0.8rem;">IPP Partner</span>
+        </div>
+        <p class="partner-profile-desc mb-0">A prominent independent power producer (IPP) and developer focused on large-scale solar, wind, and green hydrogen projects across India.</p>
+      </div>
+
+      <!-- Havells India -->
+      <div class="partner-profile-card">
+        <div class="partner-profile-header">
+          <div class="partner-profile-logo">HAVELLS <span>Solar</span></div>
+          <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-1 rounded-pill" style="font-size: 0.8rem;">Household Trust</span>
+        </div>
+        <p class="partner-profile-desc mb-0">A trusted household name for electrical and consumer goods that also supplies solar panels, inverters, and solar pumps for residential and commercial markets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="section-padding bg-light-mint text-center position-relative">
   <div class="container py-4">
     <div class="row justify-content-center">
       <div class="col-lg-8 fade-in-up">
-        <h2 class="display-6 font-headings mb-3">Ready To Make The Switch To Solar?</h2>
-        <p class="text-muted fs-5 mb-4">Discover how much you can save with Sky Solar. Secure your power independence, reduce your monthly utility charges, and invest in a greener tomorrow.</p>
+        <h2 class="display-6 font-headings mb-3">Ready To Switch To Solar?</h2>
+        <p class="text-muted fs-5 mb-4">Get a free, custom solar proposal outlining exact savings, capacity requirements, and physical layouts for your rooftop.</p>
         <div class="d-flex justify-content-center gap-3">
-          <a href="/contact" class="btn btn-premium-primary px-4 py-3">Get Free Quote</a>
-          <a href="/solar#calculator" class="btn btn-premium-secondary px-4 py-3">Calculate Savings</a>
+          <a href="/contact" class="btn btn-premium-primary px-4 py-3"><i class="bi bi-telephone-fill me-2"></i>Get Free Quote</a>
+          <a href="/solar#calculator" class="btn btn-premium-secondary px-4 py-3">Advanced Calculator</a>
         </div>
       </div>
     </div>

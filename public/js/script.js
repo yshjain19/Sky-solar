@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 5. Check hash routes for tab activation
   checkTabFromHash();
+
+  // 6. SolarSquare-style Quick Savings Estimator
+  initQuickEstimator();
 });
 
 /**
@@ -232,4 +235,68 @@ function initSavingsCalculator() {
       quoteBtn.setAttribute('href', `/contact?bill=${bill}&property=${propInput.value}&city=${encodeURIComponent(cityInput.value)}`);
     }
   });
+}
+
+/**
+ * SolarSquare-Style Home Page Quick Savings Estimator
+ */
+function initQuickEstimator() {
+  const billSlider = document.getElementById('quick-bill-slider');
+  const stateSelect = document.getElementById('quick-state');
+  const bookBtn = document.getElementById('quick-book-btn');
+
+  if (!billSlider || !stateSelect) return;
+
+  const billDisplay = document.getElementById('quick-bill-display');
+  const capacityDisplay = document.getElementById('quick-capacity');
+  const monthlySavingsDisplay = document.getElementById('quick-monthly-savings');
+  const lifetimeSavingsDisplay = document.getElementById('quick-lifetime-savings');
+
+  // State-wise tariffs in INR per kWh
+  const stateTariffs = {
+    mp: 7.0,
+    maharashtra: 9.0,
+    karnataka: 8.0,
+    delhi: 7.5,
+    gujarat: 6.5,
+    telangana: 8.0,
+    tamilnadu: 7.0,
+    other: 8.0
+  };
+
+  const updateEstimates = () => {
+    const bill = parseFloat(billSlider.value);
+    const state = stateSelect.value || 'other';
+    const tariff = stateTariffs[state];
+
+    // Live display bill value
+    billDisplay.innerText = `₹${bill.toLocaleString('en-IN')}`;
+
+    // Solar maths
+    const monthlyUnits = bill / tariff;
+    const unitsPerKwMonth = 120; // Avg generation in India
+    let capacity = monthlyUnits / unitsPerKwMonth;
+    capacity = Math.max(1.0, Math.round(capacity * 2) / 2); // Round to nearest 0.5 kW
+
+    const monthlySavings = Math.min(bill, capacity * unitsPerKwMonth * tariff);
+    const annualSavings = monthlySavings * 12;
+    const lifetimeSavings = annualSavings * 25; // 25 year warranty lifespan
+
+    // Update displays
+    capacityDisplay.innerText = `${capacity.toFixed(1)} kW`;
+    monthlySavingsDisplay.innerText = `₹${Math.round(monthlySavings).toLocaleString('en-IN')}`;
+    lifetimeSavingsDisplay.innerText = `₹${Math.round(lifetimeSavings).toLocaleString('en-IN')}`;
+
+    // Link query prefill mapping
+    if (bookBtn) {
+      bookBtn.setAttribute('href', `/contact?bill=${bill}&property=residential&city=${encodeURIComponent(stateSelect.options[stateSelect.selectedIndex].text)}`);
+    }
+  };
+
+  // Add listeners
+  billSlider.addEventListener('input', updateEstimates);
+  stateSelect.addEventListener('change', updateEstimates);
+
+  // Run initial call
+  updateEstimates();
 }

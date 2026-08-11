@@ -6,19 +6,13 @@ const Project = require('../models/Project');
 module.exports = {
   // GET / (Home Page)
   renderHome: async (req, res) => {
-    const projects = await Project.findAll();
+    const projects = await Project.find();
     res.render('home', {
       title: 'Sky Solar | Rooftop Solar Solutions for Homes & Businesses',
       projects
     });
   },
 
-  // GET /solar
-  renderSolar: (req, res) => {
-    res.render('solar', {
-      title: 'Solar Solutions & Systems'
-    });
-  },
 
   // GET /about
   renderAbout: (req, res) => {

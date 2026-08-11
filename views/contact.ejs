@@ -1,144 +1,178 @@
-<section class="section-padding bg-light-mint">
+<section class="section-padding bg-light-mint d-flex align-items-center" style="min-height: 85vh;">
   <div class="container">
-    <div class="text-center mb-5 fade-in-up">
-      <span class="text-uppercase text-gold fw-bold tracking-wider">Get In Touch</span>
-      <h1 class="mt-2 text-success">Schedule A Free Solar Consultation</h1>
-      <p class="text-muted mx-auto" style="max-width: 600px;">Fill out the form below, and our senior solar consultant will call you back within 24 hours to design your customized rooftop solar roadmap.</p>
-    </div>
-
-    <div class="row g-5">
-      <!-- Left Info Panel -->
-      <div class="col-lg-5 fade-in-up">
-        <div class="contact-info-side d-flex flex-column justify-content-between">
-          <div>
-            <h3>Contact Information</h3>
-            <p class="opacity-75">Connect directly with our headquarters or visit us to talk to our solar designers.</p>
-            
-            <ul class="contact-info-list">
-              <li>
-                <i class="bi bi-geo-alt-fill"></i>
-                <div>
-                  <h5>Corporate Office</h5>
-                  <p class="opacity-75 mb-0">Sky Solar Towers, 4th Floor, Sector 5, HSR Layout, Bengaluru, Karnataka - 560102</p>
-                </div>
-              </li>
-              <li>
-                <i class="bi bi-telephone-fill"></i>
-                <div>
-                  <h5>Sales Hotline</h5>
-                  <p class="opacity-75 mb-0">+91-9876543210 / +91-9876543211</p>
-                </div>
-              </li>
-              <li>
-                <i class="bi bi-envelope-fill"></i>
-                <div>
-                  <h5>Email Support</h5>
-                  <p class="opacity-75 mb-0">info@skysolar.in / sales@skysolar.in</p>
-                </div>
-              </li>
-              <li>
-                <i class="bi bi-clock-fill"></i>
-                <div>
-                  <h5>Business Hours</h5>
-                  <p class="opacity-75 mb-0">Monday - Saturday: 9:00 AM - 6:00 PM</p>
-                </div>
-              </li>
-            </ul>
+    <div class="row g-5 align-items-stretch">
+      <!-- Left Column: Redesigned Quote Form -->
+      <div class="col-lg-6">
+        <div class="quote-form-card" style="margin: 0; max-width: 100%;">
+          <div class="text-center mb-4">
+            <h1 class="fw-bold text-dark font-headings display-6">Get Free Quote</h1>
+            <p class="text-secondary mt-2">Get genuine advice about GoodZero™ and ask any questions you have.</p>
           </div>
 
-          <div class="pt-4 border-top border-white-50">
-            <p class="mb-0 text-white-50">Providing solar solutions across major Indian cities: Bengaluru, Pune, Delhi NCR, Ahmedabad, Mumbai, and Chennai.</p>
-          </div>
+          <!-- Flash Message Block -->
+          <% if (locals.errors && Object.keys(errors).length > 0) { %>
+            <div class="alert alert-danger rounded-3" role="alert">
+              <ul class="mb-0 small">
+                <% Object.keys(errors).forEach(key => { %>
+                  <li><%= errors[key] %></li>
+                <% }); %>
+              </ul>
+            </div>
+          <% } %>
+
+          <form action="/leads" method="POST" id="contact-consult-form" novalidate>
+            <!-- Full Name -->
+            <div class="mb-3">
+              <input type="text" name="fullName" class="form-control form-control-custom py-3 rounded-3" id="fullName" value="<%= locals.formData ? formData.fullName : '' %>" placeholder="Full Name" required>
+            </div>
+
+            <!-- Whatsapp Number -->
+            <div class="mb-3">
+              <input type="tel" name="mobileNumber" class="form-control form-control-custom py-3 rounded-3" id="mobileNumber" value="<%= locals.formData ? formData.mobileNumber : '' %>" placeholder="Whatsapp Number" required>
+            </div>
+
+            <!-- Monthly Electricity Bill -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold text-secondary mb-1" style="font-size: 0.9rem;">Monthly Electricity Bill <i class="bi bi-info-circle text-muted small" title="Helps us calculate panel sizing"></i></label>
+              <div class="bill-pill-grid">
+                <div class="bill-pill-item">
+                  <input type="radio" name="monthlyBill" id="bill-1" class="bill-pill-input" value="1200" <%= (locals.formData && formData.monthlyBill == '1200') ? 'checked' : '' %> required>
+                  <label for="bill-1" class="bill-pill-label">Less than ₹1500</label>
+                </div>
+                <div class="bill-pill-item">
+                  <input type="radio" name="monthlyBill" id="bill-2" class="bill-pill-input" value="2000" <%= (locals.formData && formData.monthlyBill == '2000') ? 'checked' : '' %>>
+                  <label for="bill-2" class="bill-pill-label">₹1500 - ₹2500</label>
+                </div>
+                <div class="bill-pill-item">
+                  <input type="radio" name="monthlyBill" id="bill-3" class="bill-pill-input" value="3200" <%= (locals.formData && formData.monthlyBill == '3200') ? 'checked' : '' %>>
+                  <label for="bill-3" class="bill-pill-label">₹2500 - ₹4000</label>
+                </div>
+                <div class="bill-pill-item">
+                  <input type="radio" name="monthlyBill" id="bill-4" class="bill-pill-input" value="6000" <%= (locals.formData && formData.monthlyBill == '6000') ? 'checked' : '' %>>
+                  <label for="bill-4" class="bill-pill-label">₹4000 - ₹8000</label>
+                </div>
+                <div class="bill-pill-item">
+                  <input type="radio" name="monthlyBill" id="bill-5" class="bill-pill-input" value="10000" <%= (locals.formData && formData.monthlyBill == '10000') ? 'checked' : '' %>>
+                  <label for="bill-5" class="bill-pill-label">More than ₹8000</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- PIN Code -->
+            <div class="mb-4">
+              <input type="text" name="pinCode" class="form-control form-control-custom py-3 rounded-3" id="pinCode" value="<%= locals.formData ? formData.pinCode : '' %>" placeholder="PIN Code" required>
+            </div>
+
+            <!-- Terms Checkbox -->
+            <div class="form-check mb-4 d-flex align-items-center gap-2">
+              <input class="form-check-input checkbox-custom-input m-0" type="checkbox" id="termsAgree" checked required>
+              <label class="form-check-label text-secondary small" for="termsAgree" style="font-size: 0.85rem;">
+                I agree to Sky Solar <a href="#" class="text-primary text-decoration-underline">Terms of use</a> and <a href="#" class="text-primary text-decoration-underline">Privacy Policy</a>.
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-premium-primary w-100 py-3 rounded-3 fw-bold fs-5 shadow-sm">Submit Details</button>
+          </form>
         </div>
       </div>
 
-      <!-- Right Form Panel -->
-      <div class="col-lg-7 fade-in-up">
-        <div class="contact-form-side">
-          <h3>Solar Consultation Request</h3>
-          
-          <form action="/leads" method="POST" id="contact-consult-form" novalidate>
-            <div class="row g-3">
-              
-              <!-- Full Name -->
-              <% const hasNameErr = locals.errors && errors.fullName; %>
-              <div class="col-md-6 form-group-custom <%= hasNameErr ? 'has-error' : '' %>" id="fg-fullName">
-                <label for="fullName" class="form-label">Full Name</label>
-                <input type="text" name="fullName" class="form-control form-control-custom" id="fullName" value="<%= locals.formData ? formData.fullName : '' %>" placeholder="e.g. Rahul Sharma" required>
-                <div class="invalid-feedback-custom"><%= hasNameErr ? errors.fullName : '' %></div>
-              </div>
+      <!-- Right Column: Corporate Trust & Verification Details -->
+      <div class="col-lg-6">
+        <div class="trust-info-card">
+          <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
+            <h2 class="h4 fw-bold text-dark font-headings mb-0">Corporate Verification</h2>
+            <span class="badge bg-success-subtle text-success border border-success rounded-pill px-3 py-1 fw-bold"><i class="bi bi-shield-fill-check me-1"></i> Verified Business</span>
+          </div>
 
-              <!-- Mobile Number -->
-              <% const hasMobileErr = locals.errors && errors.mobileNumber; %>
-              <div class="col-md-6 form-group-custom <%= hasMobileErr ? 'has-error' : '' %>" id="fg-mobileNumber">
-                <label for="mobileNumber" class="form-label">Mobile Number</label>
-                <input type="tel" name="mobileNumber" class="form-control form-control-custom" id="mobileNumber" value="<%= locals.formData ? formData.mobileNumber : '' %>" placeholder="10-digit Indian Number" required>
-                <div class="invalid-feedback-custom"><%= hasMobileErr ? errors.mobileNumber : '' %></div>
-              </div>
+          <p class="text-muted">Review our official registration parameters, contact emails, and bank details for secure payments and legal correspondence.</p>
 
-              <!-- Email Address -->
-              <% const hasEmailErr = locals.errors && errors.email; %>
-              <div class="col-md-12 form-group-custom <%= hasEmailErr ? 'has-error' : '' %>" id="fg-email">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" name="email" class="form-control form-control-custom" id="email" value="<%= locals.formData ? formData.email : '' %>" placeholder="e.g. rahul@example.com" required>
-                <div class="invalid-feedback-custom"><%= hasEmailErr ? errors.email : '' %></div>
-              </div>
-
-              <!-- City -->
-              <% const hasCityErr = locals.errors && errors.city; %>
-              <div class="col-md-6 form-group-custom <%= hasCityErr ? 'has-error' : '' %>" id="fg-city">
-                <label for="city" class="form-label">City</label>
-                <input type="text" name="city" class="form-control form-control-custom" id="city" value="<%= locals.formData ? formData.city : '' %>" placeholder="e.g. Bengaluru" required>
-                <div class="invalid-feedback-custom"><%= hasCityErr ? errors.city : '' %></div>
-              </div>
-
-              <!-- PIN Code -->
-              <% const hasPinErr = locals.errors && errors.pinCode; %>
-              <div class="col-md-6 form-group-custom <%= hasPinErr ? 'has-error' : '' %>" id="fg-pinCode">
-                <label for="pinCode" class="form-label">PIN Code</label>
-                <input type="text" name="pinCode" class="form-control form-control-custom" id="pinCode" value="<%= locals.formData ? formData.pinCode : '' %>" placeholder="e.g. 560102" required>
-                <div class="invalid-feedback-custom"><%= hasPinErr ? errors.pinCode : '' %></div>
-              </div>
-
-              <!-- Property Type -->
-              <% const hasPropErr = locals.errors && errors.propertyType; %>
-              <% const currentProp = locals.formData ? formData.propertyType : ''; %>
-              <div class="col-md-6 form-group-custom <%= hasPropErr ? 'has-error' : '' %>" id="fg-propertyType">
-                <label for="propertyType" class="form-label">Property Type</label>
-                <select name="propertyType" class="form-select form-control-custom" id="propertyType" required>
-                  <option value="" disabled <%= !currentProp ? 'selected' : '' %>>Select Property Type</option>
-                  <option value="residential" <%= currentProp === 'residential' ? 'selected' : '' %>>Residential Home</option>
-                  <option value="commercial" <%= currentProp === 'commercial' ? 'selected' : '' %>>Commercial / Office</option>
-                  <option value="apartment" <%= currentProp === 'apartment' ? 'selected' : '' %>>Apartment Complex</option>
-                  <option value="society" <%= currentProp === 'society' ? 'selected' : '' %>>Housing Society</option>
-                </select>
-                <div class="invalid-feedback-custom"><%= hasPropErr ? errors.propertyType : '' %></div>
-              </div>
-
-              <!-- Monthly Electricity Bill -->
-              <% const hasBillErr = locals.errors && errors.monthlyBill; %>
-              <div class="col-md-6 form-group-custom <%= hasBillErr ? 'has-error' : '' %>" id="fg-monthlyBill">
-                <label for="monthlyBill" class="form-label">Monthly Electricity Bill (INR)</label>
-                <div class="input-group">
-                  <span class="input-group-text bg-white border-end-0 border-secondary-subtle">₹</span>
-                  <input type="number" name="monthlyBill" class="form-control form-control-custom border-start-0" id="monthlyBill" value="<%= locals.formData ? formData.monthlyBill : '' %>" placeholder="e.g. 3500" required>
-                </div>
-                <div class="invalid-feedback-custom"><%= hasBillErr ? errors.monthlyBill : '' %></div>
-              </div>
-
-              <!-- Message -->
-              <div class="col-md-12 form-group-custom" id="fg-message">
-                <label for="message" class="form-label">Additional Message / Requirements</label>
-                <textarea name="message" class="form-control form-control-custom" id="message" rows="4" placeholder="e.g. Tell us about your roof area or special requirements..."><%= locals.formData ? formData.message : '' %></textarea>
-              </div>
-
-              <div class="col-md-12 mt-4">
-                <button type="submit" class="btn btn-premium-primary w-100 py-3">Submit Consultation Request</button>
-              </div>
+          <!-- Office Address -->
+          <div class="trust-address-block">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div>
+              <h5 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Registered Office Address</h5>
+              <div class="trust-address-text">63-B, Chota Bangarda, Vidhya Palace, Indore GPO, Indore, Madhya Pradesh, India, 452005.</div>
             </div>
-          </form>
+          </div>
+
+          <!-- Business Registry Numbers -->
+          <div class="trust-section-title"><i class="bi bi-patch-check-fill"></i> Legal Registrations</div>
+          <div class="trust-data-grid">
+            <div class="trust-data-item">
+              <div class="trust-data-label">GSTIN</div>
+              <div class="trust-data-value">23BKOPJ5932R1ZG <i class="bi bi-check-circle-fill trust-verified-icon"></i></div>
+            </div>
+            <div class="trust-data-item">
+              <div class="trust-data-label">PAN</div>
+              <div class="trust-data-value">BKOPJ5932R <i class="bi bi-check-circle-fill trust-verified-icon"></i></div>
+            </div>
+            <div class="trust-data-item" style="grid-column: span 2;">
+              <div class="trust-data-label">Udyam Registration</div>
+              <div class="trust-data-value">UDYAM-MP-23-0221133 <i class="bi bi-check-circle-fill trust-verified-icon"></i></div>
+            </div>
+          </div>
+
+          <!-- Official Contacts -->
+          <div class="trust-section-title"><i class="bi bi-envelope-check-fill"></i> Official Contacts</div>
+          <div class="trust-data-grid">
+            <div class="trust-data-item">
+              <div class="trust-data-label">Primary Email</div>
+              <div class="trust-data-value" style="font-size: 0.85rem;">skysolar249@gmail.com</div>
+            </div>
+            <div class="trust-data-item">
+              <div class="trust-data-label">Secondary Email</div>
+              <div class="trust-data-value" style="font-size: 0.85rem;">harshjainhj02@gmail.com</div>
+            </div>
+          </div>
+
+          <!-- Bank Details -->
+          <div class="trust-section-title"><i class="bi bi-bank2"></i> Bank Details</div>
+          <div class="trust-data-grid">
+            <div class="trust-data-item" style="grid-column: span 2;">
+              <div class="trust-data-label">Account Holder Name</div>
+              <div class="trust-data-value">SKY SOLAR</div>
+            </div>
+            <div class="trust-data-item">
+              <div class="trust-data-label">Account Number</div>
+              <div class="trust-data-value">120035476162</div>
+            </div>
+            <div class="trust-data-item">
+              <div class="trust-data-label">Bank Name</div>
+              <div class="trust-data-value">Canara Bank</div>
+            </div>
+            <div class="trust-data-item">
+              <div class="trust-data-label">IFSC Code</div>
+              <div class="trust-data-value">CNRB0005272</div>
+            </div>
+            <div class="trust-data-item">
+              <div class="trust-data-label">Branch Name</div>
+              <div class="trust-data-value" style="font-size: 0.85rem;">Indore Airport Road</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Check if there is a query param for bill
+    const urlParams = new URLSearchParams(window.location.search);
+    const bill = parseFloat(urlParams.get('bill'));
+    
+    if (!isNaN(bill)) {
+      let radioId = 'bill-1';
+      if (bill >= 1500 && bill < 2500) radioId = 'bill-2';
+      else if (bill >= 2500 && bill < 4000) radioId = 'bill-3';
+      else if (bill >= 4000 && bill < 8000) radioId = 'bill-4';
+      else if (bill >= 8000) radioId = 'bill-5';
+      
+      const radioBtn = document.getElementById(radioId);
+      if (radioBtn) {
+        radioBtn.checked = true;
+      }
+    }
+  });
+</script>

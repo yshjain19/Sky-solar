@@ -1,72 +1,86 @@
 <footer class="footer-section">
   <div class="container">
-    <div class="row g-4">
-      <!-- Logo & Tagline -->
-      <div class="col-lg-4 col-md-6">
+    <div class="row g-4 g-lg-5">
+
+      <!-- Column 1: Logo & Tagline -->
+      <div class="col-lg-3 col-md-6">
         <a class="footer-logo" href="/">
-          <img src="/public/images/logo.png" alt="Sky Solar Logo" style="height: 55px; width: auto;" class="d-inline-block align-top bg-white p-2 rounded">
+          <img src="/public/images/logo.png" alt="Sky Solar Logo" style="height: 55px; width: auto;" class="d-inline-block align-top">
         </a>
-        <p class="mb-4">Powering a cleaner, smarter, and more sustainable future. Turn sunlight into savings today.</p>
-        <div class="social-icons-wrapper">
-          <a href="https://instagram.com" class="social-icon" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://linkedin.com" class="social-icon" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-          <a href="https://youtube.com" class="social-icon" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-          <a href="https://facebook.com" class="social-icon" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-        </div>
+        <p class="footer-tagline mt-3">Proudly made in India ❤️</p>
       </div>
 
-      <!-- Solutions -->
-      <div class="col-lg-2 col-md-6 col-6">
-        <h3 class="footer-heading">Solutions</h3>
+      <!-- Column 2: Our Offerings + Solar Solutions -->
+      <div class="col-lg-3 col-md-6 col-6">
+        <h3 class="footer-heading">Our Offerings</h3>
         <ul class="footer-links">
-          <li><a href="/solar">Residential Solar</a></li>
-          <li><a href="/solar">Commercial Solar</a></li>
-          <li><a href="/solar">Housing Societies</a></li>
-          <li><a href="/solar#systems">On-Grid Solar</a></li>
-          <li><a href="/solar#systems">Off-Grid Solar</a></li>
-          <li><a href="/solar#systems">Hybrid Solar</a></li>
+          <li><a href="/contact">Homes</a></li>
+          <li><a href="/contact">Commercial</a></li>
+          <li><a href="/contact">Housing Society</a></li>
+        </ul>
+
+        <h3 class="footer-heading mt-4">Solar Solutions</h3>
+        <ul class="footer-links">
+          <li><a href="/contact">On-Grid Solar</a></li>
+          <li><a href="/contact">Off-Grid Solar</a></li>
+          <li><a href="/contact">Hybrid Solar</a></li>
         </ul>
       </div>
 
-      <!-- Company & Info -->
-      <div class="col-lg-2 col-md-6 col-6">
-        <h3 class="footer-heading">Company</h3>
+      <!-- Column 3: Quick Links -->
+      <div class="col-lg-3 col-md-6 col-6">
+        <h3 class="footer-heading">Quick Links</h3>
         <ul class="footer-links">
           <li><a href="/about">About Us</a></li>
-          <li><a href="/about#timeline">How It Works</a></li>
+          <li><a href="/about#subsidy">PM Surya Ghar Yojana</a></li>
+          <li><a href="/faq">FAQs</a></li>
           <li><a href="/contact">Contact Us</a></li>
-          <li><a href="/faq">Help Desk</a></li>
           <% if (!locals.isAdmin) { %>
             <li><a href="/admin/login">Admin Login</a></li>
           <% } %>
         </ul>
       </div>
 
-      <!-- Resources -->
-      <div class="col-lg-4 col-md-6">
-        <h3 class="footer-heading">Resources</h3>
-        <ul class="footer-links">
-          <li><a href="/solar#calculator">Savings Calculator</a></li>
-          <li><a href="/faq">FAQs</a></li>
-          <li><a href="/about#subsidy">Govt. Subsidy Checker</a></li>
+      <!-- Column 4: Contact Us -->
+      <div class="col-lg-3 col-md-6">
+        <h3 class="footer-heading">Contact Us</h3>
+        <ul class="footer-contact-list">
+          <li>
+            <i class="bi bi-telephone-fill"></i>
+            <span>+91-9770580516<br>+91-9770639830</span>
+          </li>
+          <li>
+            <i class="bi bi-envelope-fill"></i>
+            <span>skysolar249@gmail.com</span>
+          </li>
+          <li>
+            <i class="bi bi-geo-alt-fill"></i>
+            <span>63-B, Chota Bangarda, Vidhya Palace, Indore GPO, Indore, Madhya Pradesh 452005</span>
+          </li>
         </ul>
-        <p class="mt-4 mb-2"><i class="bi bi-envelope-fill me-2"></i> info@skysolar.in</p>
-        <p><i class="bi bi-telephone-fill me-2"></i> +91-9876543210</p>
+
+        <div class="social-icons-wrapper mt-4">
+          <a href="https://facebook.com" class="social-icon" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/skaisolar?igsh=MjYxZTllc3NodHcw" class="social-icon" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://youtube.com" class="social-icon" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="https://linkedin.com" class="social-icon" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
       </div>
+
     </div>
 
-    <!-- Bottom Links -->
+    <!-- Bottom Bar -->
     <div class="row footer-bottom">
       <div class="col-md-6 text-center text-md-start">
-        <p class="mb-0">&copy; 2026 Sky Solar. All Rights Reserved.</p>
+        <p class="mb-0">&copy; 2026 Sky Solar. Owned by Harsh Jain. All Rights Reserved.</p>
       </div>
       <div class="col-md-6">
         <div class="footer-bottom-links">
           <a href="/">Privacy Policy</a>
           <a href="/">Terms & Conditions</a>
-          <a href="/">Disclaimer</a>
         </div>
       </div>
     </div>
   </div>
 </footer>
+

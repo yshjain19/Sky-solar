@@ -20,11 +20,11 @@ const LeadSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: [true, 'Email address is required'],
     trim: true,
     lowercase: true,
     validate: {
       validator: function(v) {
+        if (!v) return true;
         return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(v);
       },
       message: 'Please enter a valid email address'
@@ -32,7 +32,6 @@ const LeadSchema = new mongoose.Schema({
   },
   city: {
     type: String,
-    required: [true, 'City is required'],
     trim: true
   },
   pinCode: {
@@ -48,7 +47,7 @@ const LeadSchema = new mongoose.Schema({
   },
   propertyType: {
     type: String,
-    required: [true, 'Property type is required'],
+    default: 'residential',
     enum: {
       values: ['residential', 'commercial', 'apartment', 'society'],
       message: 'Please select a valid property type'
