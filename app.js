@@ -98,6 +98,17 @@ app.use((req, res, next) => {
   next();
 });
 
+// Serve sitemap.xml and robots.txt from project root
+app.get('/sitemap.xml', (req, res) => {
+  res.setHeader('Content-Type', 'application/xml');
+  res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
+
+app.get('/robots.txt', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain');
+  res.sendFile(path.join(__dirname, 'robots.txt'));
+});
+
 // Import Express Routers
 const indexRoutes = require('./routes/index');
 const leadRoutes = require('./routes/lead');
