@@ -40,12 +40,12 @@ async function seedAdminUser() {
     if (adminCount === 0) {
       const defaultUser = process.env.ADMIN_USERNAME || 'admin';
       const defaultPass = process.env.ADMIN_PASSWORD || 'admin123';
-      
+
       const admin = new Admin({
         username: defaultUser,
         email: 'admin@skysolar.in'
       });
-      
+
       await Admin.register(admin, defaultPass);
       console.log(`[DB-SEED] Default administrator created: Username: "${defaultUser}", Password: "${defaultPass}"`);
     }
@@ -117,6 +117,14 @@ app.get('/sitemap.xml', (req, res) => {
 app.get('/robots.txt', (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.sendFile(path.join(__dirname, 'robots.txt'));
+});
+
+app.get('/favicon.png', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'images', 'favicon.png'));
+});
+
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'images', 'favicon.png'));
 });
 
 // Import Express Routers
