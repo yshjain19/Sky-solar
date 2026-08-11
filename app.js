@@ -1,5 +1,9 @@
 require('dotenv').config();
 
+// Override default Node.js DNS servers to resolve MongoDB Atlas SRV query issues (e.g. ISP blocks)
+const dns = require('dns');
+dns.setServers(['8.8.8.8', '1.1.1.1']);
+
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
