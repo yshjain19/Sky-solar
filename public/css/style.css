@@ -1920,4 +1920,525 @@ a {
 }
 
 
+/* =============================================================
+   RESPONSIVE DESIGN SYSTEM — Mobile-First Breakpoints
+   📱 Mobile:  320px – 576px   (max-width: 576px)
+   📱 Tablet:  577px – 768px   (max-width: 768px)
+   💻 Laptop:  769px – 1200px  (max-width: 1200px)
+   🖥 Desktop: 1201px+          (no max-width needed)
+   ============================================================= */
+
+/* Global overflow prevention */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ================================================================
+   LAPTOP (max-width: 1200px)
+   ================================================================ */
+@media (max-width: 1200px) {
+  .section-padding {
+    padding: 80px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-estimator-card {
+    padding: 28px;
+  }
+
+  .calculator-form-side,
+  .calculator-results-side {
+    padding: 36px;
+  }
+
+  .contact-info-side,
+  .contact-form-side {
+    padding: 40px;
+  }
+
+  .app-showcase-card {
+    padding: 40px;
+  }
+
+  .guarantee-banner {
+    padding: 40px;
+  }
+}
+
+/* ================================================================
+   TABLET (max-width: 768px)
+   ================================================================ */
+@media (max-width: 768px) {
+
+  .section-padding {
+    padding: 60px 0;
+  }
+
+  /* Hero */
+  .hero-section {
+    min-height: auto;
+    padding-top: 100px;
+    padding-bottom: 60px;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+    line-height: 1.25;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-stat-item h3 {
+    font-size: 1.8rem;
+  }
+
+  .hero-trust-badges {
+    justify-content: center;
+  }
+
+  /* Hero estimator */
+  .hero-estimator-card {
+    padding: 24px;
+    margin-top: 30px;
+  }
+
+  /* Calculator */
+  .calculator-form-side,
+  .calculator-results-side {
+    padding: 28px 20px;
+  }
+
+  .calculator-details-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* Contact */
+  .contact-info-side,
+  .contact-form-side {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  .quote-form-card {
+    padding: 28px 20px;
+  }
+
+  /* App showcase */
+  .app-showcase-card {
+    padding: 30px 20px;
+  }
+
+  /* Guarantee banner */
+  .guarantee-banner {
+    padding: 32px 20px;
+    text-align: center;
+  }
+
+  /* Tech cards */
+  .tech-card {
+    padding: 25px 20px;
+  }
+
+  /* Journey cards */
+  .journey-card {
+    padding: 24px 20px;
+  }
+
+  /* Impact counters */
+  .impact-stat-card h3 {
+    font-size: 2.2rem;
+  }
+
+  /* Footer */
+  .footer-bottom-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  /* Dashboard mockup */
+  .dashboard-body {
+    padding: 20px 15px;
+  }
+
+  .dashboard-header {
+    padding: 12px 15px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Comparison table: allow horizontal scrolling */
+  .comparison-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 14px 12px;
+    font-size: 0.88rem;
+  }
+
+  /* Partner logo grid */
+  .partner-logo-grid {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .partner-logo-item {
+    font-size: 1.15rem;
+  }
+
+  /* Partner profiles */
+  .partner-profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Testimonials */
+  .testimonial-carousel-item {
+    padding: 10px 15px;
+  }
+
+  .testimonial-bubble {
+    padding: 28px 20px;
+  }
+
+  /* Timeline — mobile single column */
+  .timeline-wrapper::before {
+    left: 18px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 55px;
+    padding-right: 10px;
+    text-align: left !important;
+    left: 0 !important;
+  }
+
+  .timeline-item .timeline-badge {
+    left: -6px !important;
+    right: auto !important;
+  }
+
+  .timeline-content {
+    display: block;
+    width: 100%;
+  }
+
+  /* Bill pill grid: 2 columns */
+  .bill-pill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Trust data grid: single column */
+  .trust-data-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subsidy-value {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .dashboard-stat-card .val {
+    font-size: 1.4rem;
+  }
+}
+
+/* ================================================================
+   MOBILE (max-width: 576px)
+   ================================================================ */
+@media (max-width: 576px) {
+
+  .section-padding {
+    padding: 48px 0;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding-top: 90px;
+    padding-bottom: 48px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.85rem;
+    line-height: 1.3;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .hero-stat-item h3 {
+    font-size: 1.5rem;
+  }
+
+  /* Hero estimator */
+  .hero-estimator-card {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+
+  .hero-estimator-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .estimator-value-display {
+    font-size: 1.5rem;
+  }
+
+  /* Calculator */
+  .calculator-form-side,
+  .calculator-results-side {
+    padding: 20px 16px;
+  }
+
+  .calculator-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-result-box .result-value {
+    font-size: 1.6rem;
+  }
+
+  /* Dashboard mockup */
+  .dashboard-mockup {
+    border-radius: 12px;
+  }
+
+  .dashboard-body {
+    padding: 15px 10px;
+  }
+
+  .dashboard-stat-card {
+    padding: 14px 12px;
+  }
+
+  .dashboard-stat-card .val {
+    font-size: 1.2rem;
+  }
+
+  .dashboard-visuals-panel {
+    padding: 15px;
+  }
+
+  .generation-chart-mockup {
+    height: 90px;
+    gap: 4px;
+  }
+
+  /* Contact form */
+  .contact-info-side,
+  .contact-form-side {
+    padding: 24px 16px;
+  }
+
+  .quote-form-card {
+    padding: 22px 14px;
+    border-radius: 18px;
+  }
+
+  /* App showcase */
+  .app-showcase-card {
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+
+  /* Guarantee banner */
+  .guarantee-banner {
+    padding: 28px 16px;
+    border-radius: 18px;
+  }
+
+  .guarantee-shield-wrapper {
+    font-size: 3rem;
+  }
+
+  /* Bill pill grid */
+  .bill-pill-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Journey cards */
+  .journey-card {
+    padding: 20px 16px;
+  }
+
+  .journey-step-num {
+    font-size: 4rem;
+  }
+
+  /* Solution cards */
+  .solution-img-wrapper {
+    height: 180px;
+  }
+
+  .solution-card-body {
+    padding: 32px 16px 16px 16px;
+  }
+
+  /* Tech card */
+  .tech-card {
+    padding: 22px 16px;
+  }
+
+  .tech-title {
+    font-size: 1.3rem;
+  }
+
+  /* Feature cards */
+  .feature-card {
+    padding: 24px 16px;
+  }
+
+  /* Subsidy cards */
+  .subsidy-card {
+    padding: 22px 16px;
+  }
+
+  .subsidy-value {
+    font-size: 1.6rem;
+  }
+
+  /* Impact stats */
+  .impact-stat-card {
+    padding: 28px 16px;
+  }
+
+  .impact-stat-card h3 {
+    font-size: 2rem;
+  }
+
+  /* Testimonials */
+  .testimonial-bubble {
+    padding: 22px 16px;
+  }
+
+  .testimonial-author {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+
+  /* Partner logos */
+  .partner-logo-grid {
+    gap: 16px;
+  }
+
+  .partner-logo-item {
+    font-size: 1rem;
+  }
+
+  /* Footer */
+  .footer-section {
+    padding-top: 50px;
+    padding-bottom: 24px;
+  }
+
+  .footer-bottom-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Navbar */
+  .navbar-custom {
+    padding: 8px 0;
+  }
+
+  /* Typography */
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  /* Buttons */
+  .btn-premium-primary,
+  .btn-premium-secondary {
+    padding: 11px 20px;
+    font-size: 0.95rem;
+  }
+
+  /* Trust info card */
+  .trust-info-card {
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+
+  /* System cards */
+  .system-card {
+    padding: 24px 16px;
+  }
+
+  /* Project cards */
+  .project-img-wrapper {
+    height: 180px;
+  }
+
+  /* Comparison table */
+  .comparison-table th,
+  .comparison-table td {
+    padding: 10px 8px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+}
+
+/* ================================================================
+   VERY SMALL MOBILE (max-width: 360px) — extra safety net
+   ================================================================ */
+@media (max-width: 360px) {
+  .hero-content h1 {
+    font-size: 1.65rem;
+  }
+
+  .bill-pill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-estimator-card {
+    padding: 14px 10px;
+  }
+
+  .calculator-form-side,
+  .calculator-results-side {
+    padding: 16px 12px;
+  }
+
+  .contact-info-side,
+  .contact-form-side,
+  .quote-form-card {
+    padding: 18px 12px;
+  }
+
+  .dashboard-body {
+    padding: 12px 8px;
+  }
+}
+
+
+
 
